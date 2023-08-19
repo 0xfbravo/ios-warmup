@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Factory
 
 @main
 struct github_apisApp: App {
+    var config = Container.shared.config
     var body: some Scene {
         WindowGroup {
             ContentView()

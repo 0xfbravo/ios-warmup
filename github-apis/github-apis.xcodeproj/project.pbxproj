@@ -14,6 +14,15 @@
 		ECAA1A632A90E569000E1CB2 /* github_apisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA1A622A90E569000E1CB2 /* github_apisTests.swift */; };
 		ECAA1A6D2A90E569000E1CB2 /* github_apisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA1A6C2A90E569000E1CB2 /* github_apisUITests.swift */; };
 		ECAA1A6F2A90E569000E1CB2 /* github_apisUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA1A6E2A90E569000E1CB2 /* github_apisUITestsLaunchTests.swift */; };
+		ECAA1A7D2A90E8D8000E1CB2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ECAA1A7C2A90E8D8000E1CB2 /* Alamofire */; };
+		ECAA1A872A90FA22000E1CB2 /* GithubApiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA1A862A90FA22000E1CB2 /* GithubApiRepository.swift */; };
+		ECAA1A8A2A90FB35000E1CB2 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = ECAA1A892A90FB35000E1CB2 /* Factory */; };
+		ECAA1A8D2A90FC53000E1CB2 /* dependency-injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA1A8C2A90FC52000E1CB2 /* dependency-injection.swift */; };
+		ECAA1A8F2A90FD7A000E1CB2 /* GithubApiRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA1A8E2A90FD7A000E1CB2 /* GithubApiRemoteDataSource.swift */; };
+		ECAA1A912A90FD85000E1CB2 /* GithubApiLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA1A902A90FD85000E1CB2 /* GithubApiLocalDataSource.swift */; };
+		ECAA1A932A910036000E1CB2 /* GitHubUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA1A922A910036000E1CB2 /* GitHubUserModel.swift */; };
+		ECAA1A952A910059000E1CB2 /* GitHubRepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA1A942A910059000E1CB2 /* GitHubRepositoryModel.swift */; };
+		ECAA1A972A9100CA000E1CB2 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECAA1A962A9100CA000E1CB2 /* Config.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +54,13 @@
 		ECAA1A682A90E569000E1CB2 /* github-apisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "github-apisUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECAA1A6C2A90E569000E1CB2 /* github_apisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = github_apisUITests.swift; sourceTree = "<group>"; };
 		ECAA1A6E2A90E569000E1CB2 /* github_apisUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = github_apisUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ECAA1A862A90FA22000E1CB2 /* GithubApiRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubApiRepository.swift; sourceTree = "<group>"; };
+		ECAA1A8C2A90FC52000E1CB2 /* dependency-injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "dependency-injection.swift"; sourceTree = "<group>"; };
+		ECAA1A8E2A90FD7A000E1CB2 /* GithubApiRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubApiRemoteDataSource.swift; sourceTree = "<group>"; };
+		ECAA1A902A90FD85000E1CB2 /* GithubApiLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubApiLocalDataSource.swift; sourceTree = "<group>"; };
+		ECAA1A922A910036000E1CB2 /* GitHubUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserModel.swift; sourceTree = "<group>"; };
+		ECAA1A942A910059000E1CB2 /* GitHubRepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryModel.swift; sourceTree = "<group>"; };
+		ECAA1A962A9100CA000E1CB2 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECAA1A7D2A90E8D8000E1CB2 /* Alamofire in Frameworks */,
+				ECAA1A8A2A90FB35000E1CB2 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,11 +113,12 @@
 		ECAA1A4F2A90E568000E1CB2 /* github-apis */ = {
 			isa = PBXGroup;
 			children = (
-				ECAA1A502A90E568000E1CB2 /* github_apisApp.swift */,
-				ECAA1A522A90E568000E1CB2 /* ContentView.swift */,
-				ECAA1A542A90E569000E1CB2 /* Assets.xcassets */,
-				ECAA1A562A90E569000E1CB2 /* github_apis.entitlements */,
+				ECAA1A8B2A90FB43000E1CB2 /* assets */,
+				ECAA1A7E2A90F9BD000E1CB2 /* data */,
+				ECAA1A7F2A90F9C6000E1CB2 /* domain */,
+				ECAA1A802A90F9CC000E1CB2 /* presentation */,
 				ECAA1A572A90E569000E1CB2 /* Preview Content */,
+				ECAA1A8C2A90FC52000E1CB2 /* dependency-injection.swift */,
 			);
 			path = "github-apis";
 			sourceTree = "<group>";
@@ -129,6 +148,60 @@
 			path = "github-apisUITests";
 			sourceTree = "<group>";
 		};
+		ECAA1A7E2A90F9BD000E1CB2 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				ECAA1A862A90FA22000E1CB2 /* GithubApiRepository.swift */,
+				ECAA1A8E2A90FD7A000E1CB2 /* GithubApiRemoteDataSource.swift */,
+				ECAA1A902A90FD85000E1CB2 /* GithubApiLocalDataSource.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		ECAA1A7F2A90F9C6000E1CB2 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				ECAA1A822A90F9E3000E1CB2 /* usecases */,
+				ECAA1A812A90F9DC000E1CB2 /* model */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		ECAA1A802A90F9CC000E1CB2 /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				ECAA1A502A90E568000E1CB2 /* github_apisApp.swift */,
+				ECAA1A522A90E568000E1CB2 /* ContentView.swift */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
+		ECAA1A812A90F9DC000E1CB2 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				ECAA1A922A910036000E1CB2 /* GitHubUserModel.swift */,
+				ECAA1A942A910059000E1CB2 /* GitHubRepositoryModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		ECAA1A822A90F9E3000E1CB2 /* usecases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = usecases;
+			sourceTree = "<group>";
+		};
+		ECAA1A8B2A90FB43000E1CB2 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				ECAA1A542A90E569000E1CB2 /* Assets.xcassets */,
+				ECAA1A562A90E569000E1CB2 /* github_apis.entitlements */,
+				ECAA1A962A9100CA000E1CB2 /* Config.plist */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +218,10 @@
 			dependencies = (
 			);
 			name = "github-apis";
+			packageProductDependencies = (
+				ECAA1A7C2A90E8D8000E1CB2 /* Alamofire */,
+				ECAA1A892A90FB35000E1CB2 /* Factory */,
+			);
 			productName = "github-apis";
 			productReference = ECAA1A4D2A90E568000E1CB2 /* github-apis.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +294,10 @@
 				Base,
 			);
 			mainGroup = ECAA1A442A90E567000E1CB2;
+			packageReferences = (
+				ECAA1A7B2A90E8D8000E1CB2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				ECAA1A882A90FB35000E1CB2 /* XCRemoteSwiftPackageReference "Factory" */,
+			);
 			productRefGroup = ECAA1A4E2A90E568000E1CB2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,6 +316,7 @@
 			files = (
 				ECAA1A592A90E569000E1CB2 /* Preview Assets.xcassets in Resources */,
 				ECAA1A552A90E569000E1CB2 /* Assets.xcassets in Resources */,
+				ECAA1A972A9100CA000E1CB2 /* Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +341,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECAA1A912A90FD85000E1CB2 /* GithubApiLocalDataSource.swift in Sources */,
+				ECAA1A932A910036000E1CB2 /* GitHubUserModel.swift in Sources */,
+				ECAA1A952A910059000E1CB2 /* GitHubRepositoryModel.swift in Sources */,
+				ECAA1A8D2A90FC53000E1CB2 /* dependency-injection.swift in Sources */,
+				ECAA1A8F2A90FD7A000E1CB2 /* GithubApiRemoteDataSource.swift in Sources */,
 				ECAA1A532A90E568000E1CB2 /* ContentView.swift in Sources */,
 				ECAA1A512A90E568000E1CB2 /* github_apisApp.swift in Sources */,
+				ECAA1A872A90FA22000E1CB2 /* GithubApiRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,7 +499,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "github-apis/github_apis.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "github-apis/assets/github_apis.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"github-apis/Preview Content\"";
@@ -449,7 +537,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "github-apis/github_apis.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "github-apis/assets/github_apis.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"github-apis/Preview Content\"";
@@ -612,6 +700,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ECAA1A7B2A90E8D8000E1CB2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		ECAA1A882A90FB35000E1CB2 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ECAA1A7C2A90E8D8000E1CB2 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECAA1A7B2A90E8D8000E1CB2 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		ECAA1A892A90FB35000E1CB2 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECAA1A882A90FB35000E1CB2 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ECAA1A452A90E567000E1CB2 /* Project object */;
 }
