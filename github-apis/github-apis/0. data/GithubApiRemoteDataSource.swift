@@ -31,20 +31,31 @@ protocol GithubApiRemoteDataSource {
 /// Created for remote operations only
 internal class GithubApiRemoteDataSourceImpl: GithubApiRemoteDataSource {
     private let baseUrl: String
+    private let authorizationToken: String
 
     init() {
         let config = Container.shared.config.resolve()
-        guard let baseUrl = config["GITHUB_BASE_URL"] as? String else {
+        guard let baseUrl = config["GITHUB_BASE_URL"] as? String,
+              let authorization = config["GITHUB_BEARER_TOKEN"] as? String else {
             fatalError("Config not found")
         }
         self.baseUrl = baseUrl
+        self.authorizationToken = authorization
+    }
+
+    private func getHeaders() -> HTTPHeaders {
+        var headers = [HTTPHeader]()
+        if !self.authorizationToken.isEmpty {
+            headers.append(HTTPHeader(name: "Authorization", value: "Bearer \(authorizationToken)"))
+        }
+        return HTTPHeaders(headers)
     }
 
     /// Returns a default users list provided by GitHub's Api
     func getUsersList(
         _ handler: @escaping (DataResponse<[UserModel], AFError>) -> Void
     ) {
-        AF.request("\(baseUrl)/users", method: .get)
+        AF.request("\(baseUrl)/users", method: .get, headers: getHeaders())
             .responseDecodable(of: [UserModel].self) { response in
                 handler(response)
         }
@@ -55,7 +66,7 @@ internal class GithubApiRemoteDataSourceImpl: GithubApiRemoteDataSource {
         username: String,
         _ handler: @escaping (DataResponse<UserModel, AFError>) -> Void
     ) {
-        AF.request("\(baseUrl)/users/\(username)", method: .get)
+        AF.request("\(baseUrl)/users/\(username)", method: .get, headers: getHeaders())
             .responseDecodable(of: UserModel.self) { response in
                 handler(response)
         }
@@ -66,7 +77,7 @@ internal class GithubApiRemoteDataSourceImpl: GithubApiRemoteDataSource {
         username: String,
         _ handler: @escaping (DataResponse<[RepositoryModel], AFError>) -> Void
     ) {
-        AF.request("\(baseUrl)/users/\(username)/repos", method: .get)
+        AF.request("\(baseUrl)/users/\(username)/repos", method: .get, headers: getHeaders())
             .responseDecodable(of: [RepositoryModel].self) { response in
                 handler(response)
         }
@@ -78,7 +89,7 @@ internal class GithubApiRemoteDataSourceImpl: GithubApiRemoteDataSource {
         repository: String,
         _ handler: @escaping (DataResponse<RepositoryModel, AFError>) -> Void
     ) {
-        AF.request("\(baseUrl)/repos/\(username)/\(repository)", method: .get)
+        AF.request("\(baseUrl)/repos/\(username)/\(repository)", method: .get, headers: getHeaders())
             .responseDecodable(of: RepositoryModel.self) { response in
                 handler(response)
         }

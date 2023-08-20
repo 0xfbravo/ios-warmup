@@ -4,5 +4,7 @@
 <dict>
 	<key>GITHUB_BASE_URL</key>
 	<string>https://api.github.com</string>
+	<key>GITHUB_BEARER_TOKEN</key>
+	<string></string>
 </dict>
 </plist>
