@@ -1,5 +1,5 @@
 //
-//  GetUsersListUseCase.swift
+//  GetUserRepositoriesListUseCase.swift
 //  github-apis
 //
 //  Created by 0xf on 19/08/23.
@@ -8,19 +8,21 @@
 import Foundation
 import Factory
 
-protocol GetUsersListUseCase {
+protocol GetUserRepositoriesListUseCase {
     func execute(
-        _ handler: @escaping (UseCaseResponse<[GitHubUserModel], Error>) -> Void
+        username: String,
+        _ handler: @escaping (UseCaseResponse<[RepositoryModel], Error>) -> Void
     )
 }
 
-internal class GetUsersListUseCaseImpl: GetUsersListUseCase {
+internal class GetUserRepositoriesListUseCaseImpl: GetUserRepositoriesListUseCase {
     @Injected(\.githubApiRepository) private var repository: GithubApiRepository
 
     func execute(
-        _ handler: @escaping (UseCaseResponse<[GitHubUserModel], Error>) -> Void
+        username: String,
+        _ handler: @escaping (UseCaseResponse<[RepositoryModel], Error>) -> Void
     ) {
-        repository.getUsersList { response in
+        repository.getUserRepositoriesList(username: username) { response in
             if response.error != nil {
                 return handler(UseCaseResponse(success: nil, error: UseCaseErrors.emptyModel))
             }

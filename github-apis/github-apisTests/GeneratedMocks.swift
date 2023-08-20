@@ -197,11 +197,11 @@ import Foundation
     
     
     
-     func getUsersList(_ handler: @escaping (DataResponse<[GitHubUserModel], AFError>) -> Void)  {
+     func getUsersList(_ handler: @escaping (DataResponse<[UserModel], AFError>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getUsersList(_: @escaping (DataResponse<[GitHubUserModel], AFError>) -> Void)
+    getUsersList(_: @escaping (DataResponse<[UserModel], AFError>) -> Void)
     """,
             parameters: (handler),
             escapingParameters: (handler),
@@ -217,11 +217,11 @@ import Foundation
     
     
     
-     func getUser(username: String, _ handler: @escaping (DataResponse<GitHubUserModel, AFError>) -> Void)  {
+     func getUser(username: String, _ handler: @escaping (DataResponse<UserModel, AFError>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getUser(username: String, _: @escaping (DataResponse<GitHubUserModel, AFError>) -> Void)
+    getUser(username: String, _: @escaping (DataResponse<UserModel, AFError>) -> Void)
     """,
             parameters: (username, handler),
             escapingParameters: (username, handler),
@@ -237,11 +237,11 @@ import Foundation
     
     
     
-     func getUserRepositoriesList(username: String, _ handler: @escaping (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)  {
+     func getUserRepositoriesList(username: String, _ handler: @escaping (DataResponse<[RepositoryModel], AFError>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getUserRepositoriesList(username: String, _: @escaping (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)
+    getUserRepositoriesList(username: String, _: @escaping (DataResponse<[RepositoryModel], AFError>) -> Void)
     """,
             parameters: (username, handler),
             escapingParameters: (username, handler),
@@ -257,11 +257,11 @@ import Foundation
     
     
     
-     func getRepository(username: String, repository: String, _ handler: @escaping (DataResponse<GitHubRepositoryModel, AFError>) -> Void)  {
+     func getRepository(username: String, repository: String, _ handler: @escaping (DataResponse<RepositoryModel, AFError>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getRepository(username: String, repository: String, _: @escaping (DataResponse<GitHubRepositoryModel, AFError>) -> Void)
+    getRepository(username: String, repository: String, _: @escaping (DataResponse<RepositoryModel, AFError>) -> Void)
     """,
             parameters: (username, repository, handler),
             escapingParameters: (username, repository, handler),
@@ -285,44 +285,44 @@ import Foundation
         
         
         
-        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.ProtocolStubNoReturnFunction<((DataResponse<[GitHubUserModel], AFError>) -> Void)> where M1.MatchedType == (DataResponse<[GitHubUserModel], AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<((DataResponse<[GitHubUserModel], AFError>) -> Void)>] = [wrap(matchable: handler) { $0 }]
+        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.ProtocolStubNoReturnFunction<((DataResponse<[UserModel], AFError>) -> Void)> where M1.MatchedType == (DataResponse<[UserModel], AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<((DataResponse<[UserModel], AFError>) -> Void)>] = [wrap(matchable: handler) { $0 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRemoteDataSource.self, method:
     """
-    getUsersList(_: @escaping (DataResponse<[GitHubUserModel], AFError>) -> Void)
+    getUsersList(_: @escaping (DataResponse<[UserModel], AFError>) -> Void)
     """, parameterMatchers: matchers))
         }
         
         
         
         
-        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ProtocolStubNoReturnFunction<(String, (DataResponse<GitHubUserModel, AFError>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataResponse<GitHubUserModel, AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<GitHubUserModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ProtocolStubNoReturnFunction<(String, (DataResponse<UserModel, AFError>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataResponse<UserModel, AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<UserModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRemoteDataSource.self, method:
     """
-    getUser(username: String, _: @escaping (DataResponse<GitHubUserModel, AFError>) -> Void)
+    getUser(username: String, _: @escaping (DataResponse<UserModel, AFError>) -> Void)
     """, parameterMatchers: matchers))
         }
         
         
         
         
-        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ProtocolStubNoReturnFunction<(String, (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataResponse<[GitHubRepositoryModel], AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ProtocolStubNoReturnFunction<(String, (DataResponse<[RepositoryModel], AFError>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataResponse<[RepositoryModel], AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<[RepositoryModel], AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRemoteDataSource.self, method:
     """
-    getUserRepositoriesList(username: String, _: @escaping (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)
+    getUserRepositoriesList(username: String, _: @escaping (DataResponse<[RepositoryModel], AFError>) -> Void)
     """, parameterMatchers: matchers))
         }
         
         
         
         
-        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.ProtocolStubNoReturnFunction<(String, String, (DataResponse<GitHubRepositoryModel, AFError>) -> Void)> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataResponse<GitHubRepositoryModel, AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataResponse<GitHubRepositoryModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
+        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.ProtocolStubNoReturnFunction<(String, String, (DataResponse<RepositoryModel, AFError>) -> Void)> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataResponse<RepositoryModel, AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataResponse<RepositoryModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRemoteDataSource.self, method:
     """
-    getRepository(username: String, repository: String, _: @escaping (DataResponse<GitHubRepositoryModel, AFError>) -> Void)
+    getRepository(username: String, repository: String, _: @escaping (DataResponse<RepositoryModel, AFError>) -> Void)
     """, parameterMatchers: matchers))
         }
         
@@ -346,11 +346,11 @@ import Foundation
         
         
         @discardableResult
-        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.__DoNotUse<((DataResponse<[GitHubUserModel], AFError>) -> Void), Void> where M1.MatchedType == (DataResponse<[GitHubUserModel], AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<((DataResponse<[GitHubUserModel], AFError>) -> Void)>] = [wrap(matchable: handler) { $0 }]
+        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.__DoNotUse<((DataResponse<[UserModel], AFError>) -> Void), Void> where M1.MatchedType == (DataResponse<[UserModel], AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<((DataResponse<[UserModel], AFError>) -> Void)>] = [wrap(matchable: handler) { $0 }]
             return cuckoo_manager.verify(
     """
-    getUsersList(_: @escaping (DataResponse<[GitHubUserModel], AFError>) -> Void)
+    getUsersList(_: @escaping (DataResponse<[UserModel], AFError>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -358,11 +358,11 @@ import Foundation
         
         
         @discardableResult
-        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataResponse<GitHubUserModel, AFError>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataResponse<GitHubUserModel, AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<GitHubUserModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataResponse<UserModel, AFError>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataResponse<UserModel, AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<UserModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return cuckoo_manager.verify(
     """
-    getUser(username: String, _: @escaping (DataResponse<GitHubUserModel, AFError>) -> Void)
+    getUser(username: String, _: @escaping (DataResponse<UserModel, AFError>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -370,11 +370,11 @@ import Foundation
         
         
         @discardableResult
-        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataResponse<[GitHubRepositoryModel], AFError>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataResponse<[GitHubRepositoryModel], AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataResponse<[RepositoryModel], AFError>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataResponse<[RepositoryModel], AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<[RepositoryModel], AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return cuckoo_manager.verify(
     """
-    getUserRepositoriesList(username: String, _: @escaping (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)
+    getUserRepositoriesList(username: String, _: @escaping (DataResponse<[RepositoryModel], AFError>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -382,11 +382,11 @@ import Foundation
         
         
         @discardableResult
-        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.__DoNotUse<(String, String, (DataResponse<GitHubRepositoryModel, AFError>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataResponse<GitHubRepositoryModel, AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataResponse<GitHubRepositoryModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
+        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.__DoNotUse<(String, String, (DataResponse<RepositoryModel, AFError>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataResponse<RepositoryModel, AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataResponse<RepositoryModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
             return cuckoo_manager.verify(
     """
-    getRepository(username: String, repository: String, _: @escaping (DataResponse<GitHubRepositoryModel, AFError>) -> Void)
+    getRepository(username: String, repository: String, _: @escaping (DataResponse<RepositoryModel, AFError>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -404,7 +404,7 @@ import Foundation
     
     
     
-     func getUsersList(_ handler: @escaping (DataResponse<[GitHubUserModel], AFError>) -> Void)   {
+     func getUsersList(_ handler: @escaping (DataResponse<[UserModel], AFError>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -412,7 +412,7 @@ import Foundation
     
     
     
-     func getUser(username: String, _ handler: @escaping (DataResponse<GitHubUserModel, AFError>) -> Void)   {
+     func getUser(username: String, _ handler: @escaping (DataResponse<UserModel, AFError>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -420,7 +420,7 @@ import Foundation
     
     
     
-     func getUserRepositoriesList(username: String, _ handler: @escaping (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)   {
+     func getUserRepositoriesList(username: String, _ handler: @escaping (DataResponse<[RepositoryModel], AFError>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -428,7 +428,7 @@ import Foundation
     
     
     
-     func getRepository(username: String, repository: String, _ handler: @escaping (DataResponse<GitHubRepositoryModel, AFError>) -> Void)   {
+     func getRepository(username: String, repository: String, _ handler: @escaping (DataResponse<RepositoryModel, AFError>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -470,11 +470,11 @@ import Foundation
     
     
     
-     override func getUsersList(_ handler: @escaping (DataResponse<[GitHubUserModel], AFError>) -> Void)  {
+     override func getUsersList(_ handler: @escaping (DataResponse<[UserModel], AFError>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getUsersList(_: @escaping (DataResponse<[GitHubUserModel], AFError>) -> Void)
+    getUsersList(_: @escaping (DataResponse<[UserModel], AFError>) -> Void)
     """,
             parameters: (handler),
             escapingParameters: (handler),
@@ -490,11 +490,11 @@ import Foundation
     
     
     
-     override func getUser(username: String, _ handler: @escaping (DataResponse<GitHubUserModel, AFError>) -> Void)  {
+     override func getUser(username: String, _ handler: @escaping (DataResponse<UserModel, AFError>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getUser(username: String, _: @escaping (DataResponse<GitHubUserModel, AFError>) -> Void)
+    getUser(username: String, _: @escaping (DataResponse<UserModel, AFError>) -> Void)
     """,
             parameters: (username, handler),
             escapingParameters: (username, handler),
@@ -510,11 +510,11 @@ import Foundation
     
     
     
-     override func getUserRepositoriesList(username: String, _ handler: @escaping (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)  {
+     override func getUserRepositoriesList(username: String, _ handler: @escaping (DataResponse<[RepositoryModel], AFError>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getUserRepositoriesList(username: String, _: @escaping (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)
+    getUserRepositoriesList(username: String, _: @escaping (DataResponse<[RepositoryModel], AFError>) -> Void)
     """,
             parameters: (username, handler),
             escapingParameters: (username, handler),
@@ -530,11 +530,11 @@ import Foundation
     
     
     
-     override func getRepository(username: String, repository: String, _ handler: @escaping (DataResponse<GitHubRepositoryModel, AFError>) -> Void)  {
+     override func getRepository(username: String, repository: String, _ handler: @escaping (DataResponse<RepositoryModel, AFError>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getRepository(username: String, repository: String, _: @escaping (DataResponse<GitHubRepositoryModel, AFError>) -> Void)
+    getRepository(username: String, repository: String, _: @escaping (DataResponse<RepositoryModel, AFError>) -> Void)
     """,
             parameters: (username, repository, handler),
             escapingParameters: (username, repository, handler),
@@ -558,44 +558,44 @@ import Foundation
         
         
         
-        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.ClassStubNoReturnFunction<((DataResponse<[GitHubUserModel], AFError>) -> Void)> where M1.MatchedType == (DataResponse<[GitHubUserModel], AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<((DataResponse<[GitHubUserModel], AFError>) -> Void)>] = [wrap(matchable: handler) { $0 }]
+        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.ClassStubNoReturnFunction<((DataResponse<[UserModel], AFError>) -> Void)> where M1.MatchedType == (DataResponse<[UserModel], AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<((DataResponse<[UserModel], AFError>) -> Void)>] = [wrap(matchable: handler) { $0 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRemoteDataSourceImpl.self, method:
     """
-    getUsersList(_: @escaping (DataResponse<[GitHubUserModel], AFError>) -> Void)
+    getUsersList(_: @escaping (DataResponse<[UserModel], AFError>) -> Void)
     """, parameterMatchers: matchers))
         }
         
         
         
         
-        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ClassStubNoReturnFunction<(String, (DataResponse<GitHubUserModel, AFError>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataResponse<GitHubUserModel, AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<GitHubUserModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ClassStubNoReturnFunction<(String, (DataResponse<UserModel, AFError>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataResponse<UserModel, AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<UserModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRemoteDataSourceImpl.self, method:
     """
-    getUser(username: String, _: @escaping (DataResponse<GitHubUserModel, AFError>) -> Void)
+    getUser(username: String, _: @escaping (DataResponse<UserModel, AFError>) -> Void)
     """, parameterMatchers: matchers))
         }
         
         
         
         
-        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ClassStubNoReturnFunction<(String, (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataResponse<[GitHubRepositoryModel], AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ClassStubNoReturnFunction<(String, (DataResponse<[RepositoryModel], AFError>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataResponse<[RepositoryModel], AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<[RepositoryModel], AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRemoteDataSourceImpl.self, method:
     """
-    getUserRepositoriesList(username: String, _: @escaping (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)
+    getUserRepositoriesList(username: String, _: @escaping (DataResponse<[RepositoryModel], AFError>) -> Void)
     """, parameterMatchers: matchers))
         }
         
         
         
         
-        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.ClassStubNoReturnFunction<(String, String, (DataResponse<GitHubRepositoryModel, AFError>) -> Void)> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataResponse<GitHubRepositoryModel, AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataResponse<GitHubRepositoryModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
+        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.ClassStubNoReturnFunction<(String, String, (DataResponse<RepositoryModel, AFError>) -> Void)> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataResponse<RepositoryModel, AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataResponse<RepositoryModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRemoteDataSourceImpl.self, method:
     """
-    getRepository(username: String, repository: String, _: @escaping (DataResponse<GitHubRepositoryModel, AFError>) -> Void)
+    getRepository(username: String, repository: String, _: @escaping (DataResponse<RepositoryModel, AFError>) -> Void)
     """, parameterMatchers: matchers))
         }
         
@@ -619,11 +619,11 @@ import Foundation
         
         
         @discardableResult
-        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.__DoNotUse<((DataResponse<[GitHubUserModel], AFError>) -> Void), Void> where M1.MatchedType == (DataResponse<[GitHubUserModel], AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<((DataResponse<[GitHubUserModel], AFError>) -> Void)>] = [wrap(matchable: handler) { $0 }]
+        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.__DoNotUse<((DataResponse<[UserModel], AFError>) -> Void), Void> where M1.MatchedType == (DataResponse<[UserModel], AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<((DataResponse<[UserModel], AFError>) -> Void)>] = [wrap(matchable: handler) { $0 }]
             return cuckoo_manager.verify(
     """
-    getUsersList(_: @escaping (DataResponse<[GitHubUserModel], AFError>) -> Void)
+    getUsersList(_: @escaping (DataResponse<[UserModel], AFError>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -631,11 +631,11 @@ import Foundation
         
         
         @discardableResult
-        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataResponse<GitHubUserModel, AFError>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataResponse<GitHubUserModel, AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<GitHubUserModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataResponse<UserModel, AFError>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataResponse<UserModel, AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<UserModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return cuckoo_manager.verify(
     """
-    getUser(username: String, _: @escaping (DataResponse<GitHubUserModel, AFError>) -> Void)
+    getUser(username: String, _: @escaping (DataResponse<UserModel, AFError>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -643,11 +643,11 @@ import Foundation
         
         
         @discardableResult
-        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataResponse<[GitHubRepositoryModel], AFError>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataResponse<[GitHubRepositoryModel], AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataResponse<[RepositoryModel], AFError>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataResponse<[RepositoryModel], AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataResponse<[RepositoryModel], AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return cuckoo_manager.verify(
     """
-    getUserRepositoriesList(username: String, _: @escaping (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)
+    getUserRepositoriesList(username: String, _: @escaping (DataResponse<[RepositoryModel], AFError>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -655,11 +655,11 @@ import Foundation
         
         
         @discardableResult
-        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.__DoNotUse<(String, String, (DataResponse<GitHubRepositoryModel, AFError>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataResponse<GitHubRepositoryModel, AFError>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataResponse<GitHubRepositoryModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
+        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.__DoNotUse<(String, String, (DataResponse<RepositoryModel, AFError>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataResponse<RepositoryModel, AFError>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataResponse<RepositoryModel, AFError>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
             return cuckoo_manager.verify(
     """
-    getRepository(username: String, repository: String, _: @escaping (DataResponse<GitHubRepositoryModel, AFError>) -> Void)
+    getRepository(username: String, repository: String, _: @escaping (DataResponse<RepositoryModel, AFError>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -677,7 +677,7 @@ import Foundation
     
     
     
-     override func getUsersList(_ handler: @escaping (DataResponse<[GitHubUserModel], AFError>) -> Void)   {
+     override func getUsersList(_ handler: @escaping (DataResponse<[UserModel], AFError>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -685,7 +685,7 @@ import Foundation
     
     
     
-     override func getUser(username: String, _ handler: @escaping (DataResponse<GitHubUserModel, AFError>) -> Void)   {
+     override func getUser(username: String, _ handler: @escaping (DataResponse<UserModel, AFError>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -693,7 +693,7 @@ import Foundation
     
     
     
-     override func getUserRepositoriesList(username: String, _ handler: @escaping (DataResponse<[GitHubRepositoryModel], AFError>) -> Void)   {
+     override func getUserRepositoriesList(username: String, _ handler: @escaping (DataResponse<[RepositoryModel], AFError>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -701,7 +701,7 @@ import Foundation
     
     
     
-     override func getRepository(username: String, repository: String, _ handler: @escaping (DataResponse<GitHubRepositoryModel, AFError>) -> Void)   {
+     override func getRepository(username: String, repository: String, _ handler: @escaping (DataResponse<RepositoryModel, AFError>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -758,11 +758,11 @@ import Foundation
     
     
     
-     func getUsersList(_ handler: @escaping (DataLayerResponse<[GitHubUserModel], Error>) -> Void)  {
+     func getUsersList(_ handler: @escaping (DataLayerResponse<[UserModel], Error>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getUsersList(_: @escaping (DataLayerResponse<[GitHubUserModel], Error>) -> Void)
+    getUsersList(_: @escaping (DataLayerResponse<[UserModel], Error>) -> Void)
     """,
             parameters: (handler),
             escapingParameters: (handler),
@@ -778,11 +778,11 @@ import Foundation
     
     
     
-     func getUser(username: String, _ handler: @escaping (DataLayerResponse<GitHubUserModel, Error>) -> Void)  {
+     func getUser(username: String, _ handler: @escaping (DataLayerResponse<UserModel, Error>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getUser(username: String, _: @escaping (DataLayerResponse<GitHubUserModel, Error>) -> Void)
+    getUser(username: String, _: @escaping (DataLayerResponse<UserModel, Error>) -> Void)
     """,
             parameters: (username, handler),
             escapingParameters: (username, handler),
@@ -798,11 +798,11 @@ import Foundation
     
     
     
-     func getUserRepositoriesList(username: String, _ handler: @escaping (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)  {
+     func getUserRepositoriesList(username: String, _ handler: @escaping (DataLayerResponse<[RepositoryModel], Error>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getUserRepositoriesList(username: String, _: @escaping (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)
+    getUserRepositoriesList(username: String, _: @escaping (DataLayerResponse<[RepositoryModel], Error>) -> Void)
     """,
             parameters: (username, handler),
             escapingParameters: (username, handler),
@@ -818,11 +818,11 @@ import Foundation
     
     
     
-     func getRepository(username: String, repository: String, _ handler: @escaping (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)  {
+     func getRepository(username: String, repository: String, _ handler: @escaping (DataLayerResponse<RepositoryModel, Error>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getRepository(username: String, repository: String, _: @escaping (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)
+    getRepository(username: String, repository: String, _: @escaping (DataLayerResponse<RepositoryModel, Error>) -> Void)
     """,
             parameters: (username, repository, handler),
             escapingParameters: (username, repository, handler),
@@ -846,44 +846,44 @@ import Foundation
         
         
         
-        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.ProtocolStubNoReturnFunction<((DataLayerResponse<[GitHubUserModel], Error>) -> Void)> where M1.MatchedType == (DataLayerResponse<[GitHubUserModel], Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<((DataLayerResponse<[GitHubUserModel], Error>) -> Void)>] = [wrap(matchable: handler) { $0 }]
+        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.ProtocolStubNoReturnFunction<((DataLayerResponse<[UserModel], Error>) -> Void)> where M1.MatchedType == (DataLayerResponse<[UserModel], Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<((DataLayerResponse<[UserModel], Error>) -> Void)>] = [wrap(matchable: handler) { $0 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRepository.self, method:
     """
-    getUsersList(_: @escaping (DataLayerResponse<[GitHubUserModel], Error>) -> Void)
+    getUsersList(_: @escaping (DataLayerResponse<[UserModel], Error>) -> Void)
     """, parameterMatchers: matchers))
         }
         
         
         
         
-        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ProtocolStubNoReturnFunction<(String, (DataLayerResponse<GitHubUserModel, Error>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<GitHubUserModel, Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<GitHubUserModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ProtocolStubNoReturnFunction<(String, (DataLayerResponse<UserModel, Error>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<UserModel, Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<UserModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRepository.self, method:
     """
-    getUser(username: String, _: @escaping (DataLayerResponse<GitHubUserModel, Error>) -> Void)
+    getUser(username: String, _: @escaping (DataLayerResponse<UserModel, Error>) -> Void)
     """, parameterMatchers: matchers))
         }
         
         
         
         
-        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ProtocolStubNoReturnFunction<(String, (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ProtocolStubNoReturnFunction<(String, (DataLayerResponse<[RepositoryModel], Error>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<[RepositoryModel], Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<[RepositoryModel], Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRepository.self, method:
     """
-    getUserRepositoriesList(username: String, _: @escaping (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)
+    getUserRepositoriesList(username: String, _: @escaping (DataLayerResponse<[RepositoryModel], Error>) -> Void)
     """, parameterMatchers: matchers))
         }
         
         
         
         
-        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.ProtocolStubNoReturnFunction<(String, String, (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
+        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.ProtocolStubNoReturnFunction<(String, String, (DataLayerResponse<RepositoryModel, Error>) -> Void)> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataLayerResponse<RepositoryModel, Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataLayerResponse<RepositoryModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRepository.self, method:
     """
-    getRepository(username: String, repository: String, _: @escaping (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)
+    getRepository(username: String, repository: String, _: @escaping (DataLayerResponse<RepositoryModel, Error>) -> Void)
     """, parameterMatchers: matchers))
         }
         
@@ -907,11 +907,11 @@ import Foundation
         
         
         @discardableResult
-        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.__DoNotUse<((DataLayerResponse<[GitHubUserModel], Error>) -> Void), Void> where M1.MatchedType == (DataLayerResponse<[GitHubUserModel], Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<((DataLayerResponse<[GitHubUserModel], Error>) -> Void)>] = [wrap(matchable: handler) { $0 }]
+        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.__DoNotUse<((DataLayerResponse<[UserModel], Error>) -> Void), Void> where M1.MatchedType == (DataLayerResponse<[UserModel], Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<((DataLayerResponse<[UserModel], Error>) -> Void)>] = [wrap(matchable: handler) { $0 }]
             return cuckoo_manager.verify(
     """
-    getUsersList(_: @escaping (DataLayerResponse<[GitHubUserModel], Error>) -> Void)
+    getUsersList(_: @escaping (DataLayerResponse<[UserModel], Error>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -919,11 +919,11 @@ import Foundation
         
         
         @discardableResult
-        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataLayerResponse<GitHubUserModel, Error>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<GitHubUserModel, Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<GitHubUserModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataLayerResponse<UserModel, Error>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<UserModel, Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<UserModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return cuckoo_manager.verify(
     """
-    getUser(username: String, _: @escaping (DataLayerResponse<GitHubUserModel, Error>) -> Void)
+    getUser(username: String, _: @escaping (DataLayerResponse<UserModel, Error>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -931,11 +931,11 @@ import Foundation
         
         
         @discardableResult
-        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataLayerResponse<[RepositoryModel], Error>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<[RepositoryModel], Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<[RepositoryModel], Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return cuckoo_manager.verify(
     """
-    getUserRepositoriesList(username: String, _: @escaping (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)
+    getUserRepositoriesList(username: String, _: @escaping (DataLayerResponse<[RepositoryModel], Error>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -943,11 +943,11 @@ import Foundation
         
         
         @discardableResult
-        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.__DoNotUse<(String, String, (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
+        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.__DoNotUse<(String, String, (DataLayerResponse<RepositoryModel, Error>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataLayerResponse<RepositoryModel, Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataLayerResponse<RepositoryModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
             return cuckoo_manager.verify(
     """
-    getRepository(username: String, repository: String, _: @escaping (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)
+    getRepository(username: String, repository: String, _: @escaping (DataLayerResponse<RepositoryModel, Error>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -965,7 +965,7 @@ import Foundation
     
     
     
-     func getUsersList(_ handler: @escaping (DataLayerResponse<[GitHubUserModel], Error>) -> Void)   {
+     func getUsersList(_ handler: @escaping (DataLayerResponse<[UserModel], Error>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -973,7 +973,7 @@ import Foundation
     
     
     
-     func getUser(username: String, _ handler: @escaping (DataLayerResponse<GitHubUserModel, Error>) -> Void)   {
+     func getUser(username: String, _ handler: @escaping (DataLayerResponse<UserModel, Error>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -981,7 +981,7 @@ import Foundation
     
     
     
-     func getUserRepositoriesList(username: String, _ handler: @escaping (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)   {
+     func getUserRepositoriesList(username: String, _ handler: @escaping (DataLayerResponse<[RepositoryModel], Error>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -989,7 +989,7 @@ import Foundation
     
     
     
-     func getRepository(username: String, repository: String, _ handler: @escaping (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)   {
+     func getRepository(username: String, repository: String, _ handler: @escaping (DataLayerResponse<RepositoryModel, Error>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -1031,11 +1031,11 @@ import Foundation
     
     
     
-     override func getUsersList(_ handler: @escaping (DataLayerResponse<[GitHubUserModel], Error>) -> Void)  {
+     override func getUsersList(_ handler: @escaping (DataLayerResponse<[UserModel], Error>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getUsersList(_: @escaping (DataLayerResponse<[GitHubUserModel], Error>) -> Void)
+    getUsersList(_: @escaping (DataLayerResponse<[UserModel], Error>) -> Void)
     """,
             parameters: (handler),
             escapingParameters: (handler),
@@ -1051,11 +1051,11 @@ import Foundation
     
     
     
-     override func getUser(username: String, _ handler: @escaping (DataLayerResponse<GitHubUserModel, Error>) -> Void)  {
+     override func getUser(username: String, _ handler: @escaping (DataLayerResponse<UserModel, Error>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getUser(username: String, _: @escaping (DataLayerResponse<GitHubUserModel, Error>) -> Void)
+    getUser(username: String, _: @escaping (DataLayerResponse<UserModel, Error>) -> Void)
     """,
             parameters: (username, handler),
             escapingParameters: (username, handler),
@@ -1071,11 +1071,11 @@ import Foundation
     
     
     
-     override func getUserRepositoriesList(username: String, _ handler: @escaping (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)  {
+     override func getUserRepositoriesList(username: String, _ handler: @escaping (DataLayerResponse<[RepositoryModel], Error>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getUserRepositoriesList(username: String, _: @escaping (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)
+    getUserRepositoriesList(username: String, _: @escaping (DataLayerResponse<[RepositoryModel], Error>) -> Void)
     """,
             parameters: (username, handler),
             escapingParameters: (username, handler),
@@ -1091,11 +1091,11 @@ import Foundation
     
     
     
-     override func getRepository(username: String, repository: String, _ handler: @escaping (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)  {
+     override func getRepository(username: String, repository: String, _ handler: @escaping (DataLayerResponse<RepositoryModel, Error>) -> Void)  {
         
     return cuckoo_manager.call(
     """
-    getRepository(username: String, repository: String, _: @escaping (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)
+    getRepository(username: String, repository: String, _: @escaping (DataLayerResponse<RepositoryModel, Error>) -> Void)
     """,
             parameters: (username, repository, handler),
             escapingParameters: (username, repository, handler),
@@ -1119,44 +1119,44 @@ import Foundation
         
         
         
-        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.ClassStubNoReturnFunction<((DataLayerResponse<[GitHubUserModel], Error>) -> Void)> where M1.MatchedType == (DataLayerResponse<[GitHubUserModel], Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<((DataLayerResponse<[GitHubUserModel], Error>) -> Void)>] = [wrap(matchable: handler) { $0 }]
+        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.ClassStubNoReturnFunction<((DataLayerResponse<[UserModel], Error>) -> Void)> where M1.MatchedType == (DataLayerResponse<[UserModel], Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<((DataLayerResponse<[UserModel], Error>) -> Void)>] = [wrap(matchable: handler) { $0 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRepositoryImpl.self, method:
     """
-    getUsersList(_: @escaping (DataLayerResponse<[GitHubUserModel], Error>) -> Void)
+    getUsersList(_: @escaping (DataLayerResponse<[UserModel], Error>) -> Void)
     """, parameterMatchers: matchers))
         }
         
         
         
         
-        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ClassStubNoReturnFunction<(String, (DataLayerResponse<GitHubUserModel, Error>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<GitHubUserModel, Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<GitHubUserModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ClassStubNoReturnFunction<(String, (DataLayerResponse<UserModel, Error>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<UserModel, Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<UserModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRepositoryImpl.self, method:
     """
-    getUser(username: String, _: @escaping (DataLayerResponse<GitHubUserModel, Error>) -> Void)
+    getUser(username: String, _: @escaping (DataLayerResponse<UserModel, Error>) -> Void)
     """, parameterMatchers: matchers))
         }
         
         
         
         
-        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ClassStubNoReturnFunction<(String, (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.ClassStubNoReturnFunction<(String, (DataLayerResponse<[RepositoryModel], Error>) -> Void)> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<[RepositoryModel], Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<[RepositoryModel], Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRepositoryImpl.self, method:
     """
-    getUserRepositoriesList(username: String, _: @escaping (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)
+    getUserRepositoriesList(username: String, _: @escaping (DataLayerResponse<[RepositoryModel], Error>) -> Void)
     """, parameterMatchers: matchers))
         }
         
         
         
         
-        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.ClassStubNoReturnFunction<(String, String, (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
+        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.ClassStubNoReturnFunction<(String, String, (DataLayerResponse<RepositoryModel, Error>) -> Void)> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataLayerResponse<RepositoryModel, Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataLayerResponse<RepositoryModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
             return .init(stub: cuckoo_manager.createStub(for: MockGithubApiRepositoryImpl.self, method:
     """
-    getRepository(username: String, repository: String, _: @escaping (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)
+    getRepository(username: String, repository: String, _: @escaping (DataLayerResponse<RepositoryModel, Error>) -> Void)
     """, parameterMatchers: matchers))
         }
         
@@ -1180,11 +1180,11 @@ import Foundation
         
         
         @discardableResult
-        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.__DoNotUse<((DataLayerResponse<[GitHubUserModel], Error>) -> Void), Void> where M1.MatchedType == (DataLayerResponse<[GitHubUserModel], Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<((DataLayerResponse<[GitHubUserModel], Error>) -> Void)>] = [wrap(matchable: handler) { $0 }]
+        func getUsersList<M1: Cuckoo.Matchable>(_ handler: M1) -> Cuckoo.__DoNotUse<((DataLayerResponse<[UserModel], Error>) -> Void), Void> where M1.MatchedType == (DataLayerResponse<[UserModel], Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<((DataLayerResponse<[UserModel], Error>) -> Void)>] = [wrap(matchable: handler) { $0 }]
             return cuckoo_manager.verify(
     """
-    getUsersList(_: @escaping (DataLayerResponse<[GitHubUserModel], Error>) -> Void)
+    getUsersList(_: @escaping (DataLayerResponse<[UserModel], Error>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -1192,11 +1192,11 @@ import Foundation
         
         
         @discardableResult
-        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataLayerResponse<GitHubUserModel, Error>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<GitHubUserModel, Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<GitHubUserModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataLayerResponse<UserModel, Error>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<UserModel, Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<UserModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return cuckoo_manager.verify(
     """
-    getUser(username: String, _: @escaping (DataLayerResponse<GitHubUserModel, Error>) -> Void)
+    getUser(username: String, _: @escaping (DataLayerResponse<UserModel, Error>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -1204,11 +1204,11 @@ import Foundation
         
         
         @discardableResult
-        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
+        func getUserRepositoriesList<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(username: M1, _ handler: M2) -> Cuckoo.__DoNotUse<(String, (DataLayerResponse<[RepositoryModel], Error>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == (DataLayerResponse<[RepositoryModel], Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, (DataLayerResponse<[RepositoryModel], Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: handler) { $0.1 }]
             return cuckoo_manager.verify(
     """
-    getUserRepositoriesList(username: String, _: @escaping (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)
+    getUserRepositoriesList(username: String, _: @escaping (DataLayerResponse<[RepositoryModel], Error>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -1216,11 +1216,11 @@ import Foundation
         
         
         @discardableResult
-        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.__DoNotUse<(String, String, (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void {
-            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
+        func getRepository<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(username: M1, repository: M2, _ handler: M3) -> Cuckoo.__DoNotUse<(String, String, (DataLayerResponse<RepositoryModel, Error>) -> Void), Void> where M1.MatchedType == String, M2.MatchedType == String, M3.MatchedType == (DataLayerResponse<RepositoryModel, Error>) -> Void {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, (DataLayerResponse<RepositoryModel, Error>) -> Void)>] = [wrap(matchable: username) { $0.0 }, wrap(matchable: repository) { $0.1 }, wrap(matchable: handler) { $0.2 }]
             return cuckoo_manager.verify(
     """
-    getRepository(username: String, repository: String, _: @escaping (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)
+    getRepository(username: String, repository: String, _: @escaping (DataLayerResponse<RepositoryModel, Error>) -> Void)
     """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
         }
         
@@ -1238,7 +1238,7 @@ import Foundation
     
     
     
-     override func getUsersList(_ handler: @escaping (DataLayerResponse<[GitHubUserModel], Error>) -> Void)   {
+     override func getUsersList(_ handler: @escaping (DataLayerResponse<[UserModel], Error>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -1246,7 +1246,7 @@ import Foundation
     
     
     
-     override func getUser(username: String, _ handler: @escaping (DataLayerResponse<GitHubUserModel, Error>) -> Void)   {
+     override func getUser(username: String, _ handler: @escaping (DataLayerResponse<UserModel, Error>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -1254,7 +1254,7 @@ import Foundation
     
     
     
-     override func getUserRepositoriesList(username: String, _ handler: @escaping (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void)   {
+     override func getUserRepositoriesList(username: String, _ handler: @escaping (DataLayerResponse<[RepositoryModel], Error>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -1262,7 +1262,7 @@ import Foundation
     
     
     
-     override func getRepository(username: String, repository: String, _ handler: @escaping (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void)   {
+     override func getRepository(username: String, repository: String, _ handler: @escaping (DataLayerResponse<RepositoryModel, Error>) -> Void)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     

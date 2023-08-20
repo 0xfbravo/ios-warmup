@@ -7,37 +7,47 @@
 
 import Foundation
 import Factory
+import Willow
+
+/// Essentials
+extension Container {
+    var logger: Factory<Logger> {
+        Factory(self) { Logger(logLevels: [.all], writers: [ConsoleWriter()]) }.singleton
+    }
+}
 
 /// Data layer
 extension Container {
     /// Reading from .plist, but the better approach is
     /// receive this from a secure storage or remote config like Firebase
-    var config: [String: Any] {
-        let configPlistPath = "Config"
-        debugPrint("Reading initial app config from \(configPlistPath).plist")
-        if let plistPath = Bundle.main.path(forResource: configPlistPath, ofType: "plist") {
-            if let plistData = FileManager.default.contents(atPath: plistPath) {
-                do {
-                    if let plistDictionary =
-                        try PropertyListSerialization
-                            .propertyList(
-                                from: plistData,
-                                options: [],
-                                format: nil
-                            ) as? [String: Any] {
-                        debugPrint("Sucessfully loaded app config \(plistDictionary)")
-                        return plistDictionary
+    var config: Factory<[String: Any]> {
+        Factory(self) {
+            let configPlistPath = "Config"
+            debugPrint("Reading initial app config from \(configPlistPath).plist")
+            if let plistPath = Bundle.main.path(forResource: configPlistPath, ofType: "plist") {
+                if let plistData = FileManager.default.contents(atPath: plistPath) {
+                    do {
+                        if let plistDictionary =
+                            try PropertyListSerialization
+                                .propertyList(
+                                    from: plistData,
+                                    options: [],
+                                    format: nil
+                                ) as? [String: Any] {
+                            debugPrint("Sucessfully loaded app config \(plistDictionary)")
+                            return plistDictionary
+                        }
+                    } catch {
+                        fatalError("Unable to read config from `\(configPlistPath).plist`: \(error)")
                     }
-                } catch {
-                    fatalError("Unable to read config from `\(configPlistPath).plist`: \(error)")
+                } else {
+                    fatalError("Unable to read config from `\(configPlistPath).plist`")
                 }
             } else {
                 fatalError("Unable to read config from `\(configPlistPath).plist`")
             }
-        } else {
-            fatalError("Unable to read config from `\(configPlistPath).plist`")
-        }
-        return [:]
+            return [:]
+        }.singleton
     }
 
     // Data source

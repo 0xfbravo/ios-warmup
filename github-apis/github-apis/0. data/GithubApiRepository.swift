@@ -10,20 +10,20 @@ import Factory
 
 protocol GithubApiRepository {
     func getUsersList(
-        _ handler: @escaping (DataLayerResponse<[GitHubUserModel], Error>) -> Void
+        _ handler: @escaping (DataLayerResponse<[UserModel], Error>) -> Void
     )
     func getUser(
         username: String,
-        _ handler: @escaping (DataLayerResponse<GitHubUserModel, Error>) -> Void
+        _ handler: @escaping (DataLayerResponse<UserModel, Error>) -> Void
     )
     func getUserRepositoriesList(
         username: String,
-        _ handler: @escaping (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void
+        _ handler: @escaping (DataLayerResponse<[RepositoryModel], Error>) -> Void
     )
     func getRepository(
         username: String,
         repository: String,
-        _ handler: @escaping (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void
+        _ handler: @escaping (DataLayerResponse<RepositoryModel, Error>) -> Void
     )
 }
 
@@ -32,7 +32,7 @@ internal class GithubApiRepositoryImpl: GithubApiRepository {
     @Injected(\.githubApiRemoteDataSource) private var remoteDataSource: GithubApiRemoteDataSource
 
     func getUsersList(
-        _ handler: @escaping (DataLayerResponse<[GitHubUserModel], Error>) -> Void
+        _ handler: @escaping (DataLayerResponse<[UserModel], Error>) -> Void
     ) {
         // TODO: Add cache logic
         remoteDataSource
@@ -46,7 +46,7 @@ internal class GithubApiRepositoryImpl: GithubApiRepository {
 
     func getUser(
         username: String,
-        _ handler: @escaping (DataLayerResponse<GitHubUserModel, Error>) -> Void
+        _ handler: @escaping (DataLayerResponse<UserModel, Error>) -> Void
     ) {
         // TODO: Add cache logic
         remoteDataSource
@@ -62,7 +62,7 @@ internal class GithubApiRepositoryImpl: GithubApiRepository {
 
     func getUserRepositoriesList(
         username: String,
-        _ handler: @escaping (DataLayerResponse<[GitHubRepositoryModel], Error>) -> Void
+        _ handler: @escaping (DataLayerResponse<[RepositoryModel], Error>) -> Void
     ) {
         // TODO: Add cache logic
         remoteDataSource
@@ -79,7 +79,7 @@ internal class GithubApiRepositoryImpl: GithubApiRepository {
     func getRepository(
         username: String,
         repository: String,
-        _ handler: @escaping (DataLayerResponse<GitHubRepositoryModel, Error>) -> Void
+        _ handler: @escaping (DataLayerResponse<RepositoryModel, Error>) -> Void
     ) {
         // TODO: Add cache logic
         remoteDataSource

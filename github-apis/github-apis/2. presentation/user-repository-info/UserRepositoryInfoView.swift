@@ -23,9 +23,7 @@ struct UserRepositoryInfoView: View {
          } else {
              VStack(alignment: .leading, spacing: 16) {
                  Text(viewModel.repository?.name ?? "")
-                 Text(viewModel.repository?.description ?? "")
                  Text(viewModel.repository?.language ?? "")
-                 Text(viewModel.repository?.gitUrl ?? "")
                  Text("\(viewModel.repository?.forksCount ?? -1)")
              }
          }

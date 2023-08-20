@@ -12,7 +12,7 @@ protocol GetRepositoryUseCase {
     func execute(
         username: String,
         repositoryName: String,
-        _ handler: @escaping (UseCaseResponse<GitHubRepositoryModel, Error>) -> Void
+        _ handler: @escaping (UseCaseResponse<RepositoryModel, Error>) -> Void
     )
 }
 
@@ -22,7 +22,7 @@ internal class GetRepositoryUseCaseImpl: GetRepositoryUseCase {
     func execute(
         username: String,
         repositoryName: String,
-        _ handler: @escaping (UseCaseResponse<GitHubRepositoryModel, Error>) -> Void
+        _ handler: @escaping (UseCaseResponse<RepositoryModel, Error>) -> Void
     ) {
         repository.getRepository(
             username: username,

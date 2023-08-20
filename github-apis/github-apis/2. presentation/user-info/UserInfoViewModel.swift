@@ -1,5 +1,5 @@
 //
-//  UserRepositoriesViewModel.swift
+//  UserInfoViewModel.swift
 //  github-apis
 //
 //  Created by 0xf on 20/08/23.
@@ -8,19 +8,19 @@
 import SwiftUI
 import Factory
 
-class UserRepositoriesViewModel: ObservableObject {
-    @Published var repositories: [GitHubRepositoryModel]?
+class UserInfoViewModel: ObservableObject {
+    @Published var user: UserModel?
     @Published var isLoading = false
     @Published var hasError = false
-    @Injected(\.getUserRepositoriesUseCase) private var getUserRepositoresUseCase
+    @Injected(\.getUserUseCase) private var getUserUseCase
 
     init () {
-        getUserRepositories()
+        getUser()
     }
 
-    private func getUserRepositories() {
+    private func getUser() {
         self.isLoading = true
-        getUserRepositoresUseCase.execute(
+        getUserUseCase.execute(
             username: "0xfbravo"
         ) { response in
             self.isLoading = false
@@ -28,7 +28,7 @@ class UserRepositoriesViewModel: ObservableObject {
                 self.hasError = true
                 return
             }
-            self.repositories = response.success
+            self.user = response.success
         }
     }
 }

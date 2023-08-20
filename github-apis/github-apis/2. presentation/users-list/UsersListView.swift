@@ -10,7 +10,7 @@ import Factory
 
 struct UsersListView: View {
    @ObservedObject private var viewModel: UsersListViewModel
-    
+
     init() {
         self.viewModel = Container.shared.usersListViewModel.resolve()
     }
@@ -27,7 +27,7 @@ struct UsersListView: View {
                 }
             } else {
                 List(viewModel.users ?? []) { user in
-                    NavigationLink(user.login, destination: UserInfoView())
+                    NavigationLink(user.login ?? "Unknown", destination: UserInfoView())
                 }
             }
         }

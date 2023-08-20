@@ -11,20 +11,20 @@ import Alamofire
 
 protocol GithubApiRemoteDataSource {
     func getUsersList(
-        _ handler: @escaping (DataResponse<[GitHubUserModel], AFError>) -> Void
+        _ handler: @escaping (DataResponse<[UserModel], AFError>) -> Void
     )
     func getUser(
         username: String,
-        _ handler: @escaping (DataResponse<GitHubUserModel, AFError>) -> Void
+        _ handler: @escaping (DataResponse<UserModel, AFError>) -> Void
     )
     func getUserRepositoriesList(
         username: String,
-        _ handler: @escaping (DataResponse<[GitHubRepositoryModel], AFError>) -> Void
+        _ handler: @escaping (DataResponse<[RepositoryModel], AFError>) -> Void
     )
     func getRepository(
         username: String,
         repository: String,
-        _ handler: @escaping (DataResponse<GitHubRepositoryModel, AFError>) -> Void
+        _ handler: @escaping (DataResponse<RepositoryModel, AFError>) -> Void
     )
 }
 
@@ -33,7 +33,8 @@ internal class GithubApiRemoteDataSourceImpl: GithubApiRemoteDataSource {
     private let baseUrl: String
 
     init() {
-        guard let baseUrl = Container.shared.config["GITHUB_BASE_URL"] as? String  else {
+        let config = Container.shared.config.resolve()
+        guard let baseUrl = config["GITHUB_BASE_URL"] as? String else {
             fatalError("Config not found")
         }
         self.baseUrl = baseUrl
@@ -41,10 +42,10 @@ internal class GithubApiRemoteDataSourceImpl: GithubApiRemoteDataSource {
 
     /// Returns a default users list provided by GitHub's Api
     func getUsersList(
-        _ handler: @escaping (DataResponse<[GitHubUserModel], AFError>) -> Void
+        _ handler: @escaping (DataResponse<[UserModel], AFError>) -> Void
     ) {
         AF.request("\(baseUrl)/users", method: .get)
-            .responseDecodable(of: [GitHubUserModel].self) { response in
+            .responseDecodable(of: [UserModel].self) { response in
                 handler(response)
         }
     }
@@ -52,10 +53,10 @@ internal class GithubApiRemoteDataSourceImpl: GithubApiRemoteDataSource {
     /// Returns the information of a certain username
     func getUser(
         username: String,
-        _ handler: @escaping (DataResponse<GitHubUserModel, AFError>) -> Void
+        _ handler: @escaping (DataResponse<UserModel, AFError>) -> Void
     ) {
-        AF.request("\(baseUrl)/users", method: .get)
-            .responseDecodable(of: GitHubUserModel.self) { response in
+        AF.request("\(baseUrl)/users/\(username)", method: .get)
+            .responseDecodable(of: UserModel.self) { response in
                 handler(response)
         }
     }
@@ -63,10 +64,10 @@ internal class GithubApiRemoteDataSourceImpl: GithubApiRemoteDataSource {
     /// Returns a list of repositories of a certain username
     func getUserRepositoriesList(
         username: String,
-        _ handler: @escaping (DataResponse<[GitHubRepositoryModel], AFError>) -> Void
+        _ handler: @escaping (DataResponse<[RepositoryModel], AFError>) -> Void
     ) {
-        AF.request("\(baseUrl)/users", method: .get)
-            .responseDecodable(of: [GitHubRepositoryModel].self) { response in
+        AF.request("\(baseUrl)/users/\(username)/repos", method: .get)
+            .responseDecodable(of: [RepositoryModel].self) { response in
                 handler(response)
         }
     }
@@ -75,10 +76,10 @@ internal class GithubApiRemoteDataSourceImpl: GithubApiRemoteDataSource {
     func getRepository(
         username: String,
         repository: String,
-        _ handler: @escaping (DataResponse<GitHubRepositoryModel, AFError>) -> Void
+        _ handler: @escaping (DataResponse<RepositoryModel, AFError>) -> Void
     ) {
         AF.request("\(baseUrl)/repos/\(username)/\(repository)", method: .get)
-            .responseDecodable(of: GitHubRepositoryModel.self) { response in
+            .responseDecodable(of: RepositoryModel.self) { response in
                 handler(response)
         }
     }

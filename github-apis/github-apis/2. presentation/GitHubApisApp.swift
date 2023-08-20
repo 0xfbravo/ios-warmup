@@ -14,7 +14,8 @@ struct GitHubApisApp: App {
     var body: some Scene {
         WindowGroup {
 //            UsersListView()
-            UserRepositoryInfoView()
+//            UserRepositoryInfoView()
+            UserRepositoriesView()
         }
     }
 }

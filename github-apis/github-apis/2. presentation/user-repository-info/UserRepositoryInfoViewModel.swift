@@ -9,7 +9,7 @@ import SwiftUI
 import Factory
 
 class UserRepositoryInfoViewModel: ObservableObject {
-    @Published var repository: GitHubRepositoryModel?
+    @Published var repository: RepositoryModel?
     @Published var isLoading = false
     @Published var hasError = false
     @Injected(\.getRepositoryUseCase) private var getRepositoryUseCase

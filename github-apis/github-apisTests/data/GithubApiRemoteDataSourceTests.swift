@@ -21,7 +21,7 @@ final class GithubApiRemoteDataSourceTests: XCTestCase {
 //        let mock = MockGithubApiRemoteDataSource()
 //        stub(mock) { stub in
 //            stub.getUsersList().then { _ in
-//                return DataResponse<[GitHubUserModel], AFError>(
+//                return DataResponse<[UserModel], AFError>(
 //                    request: nil,
 //                    response: nil,
 //                    data: nil,

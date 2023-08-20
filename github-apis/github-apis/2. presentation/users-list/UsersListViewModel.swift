@@ -1,5 +1,5 @@
 //
-//  UserInfoViewModel.swift
+//  UsersListViewModel.swift
 //  github-apis
 //
 //  Created by 0xf on 20/08/23.
@@ -8,27 +8,25 @@
 import SwiftUI
 import Factory
 
-class UserInfoViewModel: ObservableObject {
-    @Published var user: GitHubUserModel?
+class UsersListViewModel: ObservableObject {
+    @Published var users: [UserModel]?
     @Published var isLoading = false
     @Published var hasError = false
-    @Injected(\.getUserUseCase) private var getUserUseCase
+    @Injected(\.getUsersListUseCase) private var getUsersListUseCase
 
     init () {
-        getUser()
+        getUsersList()
     }
 
-    private func getUser() {
+    private func getUsersList() {
         self.isLoading = true
-        getUserUseCase.execute(
-            username: "0xfbravo"
-        ) { response in
+        getUsersListUseCase.execute { response in
             self.isLoading = false
             if response.error != nil {
                 self.hasError = true
                 return
             }
-            self.user = response.success
+            self.users = response.success
         }
     }
 }
