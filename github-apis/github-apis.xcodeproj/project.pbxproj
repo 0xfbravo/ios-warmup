@@ -160,6 +160,7 @@
 		ECAA1A4F2A90E568000E1CB2 /* github-apis */ = {
 			isa = PBXGroup;
 			children = (
+				ECAA1A572A90E569000E1CB2 /* Preview Content */,
 				ECAA1A7E2A90F9BD000E1CB2 /* 0. data */,
 				ECAA1A7F2A90F9C6000E1CB2 /* 1. domain */,
 				ECAA1A802A90F9CC000E1CB2 /* 2. presentation */,
@@ -309,7 +310,6 @@
 		ECF242EC2A9286B200E05BD9 /* design-system */ = {
 			isa = PBXGroup;
 			children = (
-				ECAA1A572A90E569000E1CB2 /* Preview Content */,
 				ECAA1A542A90E569000E1CB2 /* Assets.xcassets */,
 				ECF242ED2A9286C500E05BD9 /* LoadingView.swift */,
 				ECF242EF2A9286EF00E05BD9 /* ErrorView.swift */,

@@ -6,11 +6,28 @@
 //
 
 import SwiftUI
+import Factory
 
 struct UserInfoView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+    @ObservedObject private var viewModel: UserInfoViewModel
+
+     init() {
+         self.viewModel = Container.shared.userInfoViewModel.resolve()
+     }
+
+     var body: some View {
+         if viewModel.isLoading {
+             LoadingView()
+         } else if viewModel.hasError {
+             ErrorView()
+         } else {
+             VStack(alignment: .leading, spacing: 16) {
+                Text(viewModel.user?.name ?? "")
+                Text(viewModel.user?.login ?? "")
+                Text(viewModel.user?.bio ?? "")
+             }
+         }
+     }
 }
 
 struct UserInfoView_Previews: PreviewProvider {

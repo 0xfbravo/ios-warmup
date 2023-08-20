@@ -13,9 +13,10 @@ struct GitHubApisApp: App {
     var config = Container.shared.config
     var body: some Scene {
         WindowGroup {
-//            UsersListView()
+            UsersListView()
 //            UserRepositoryInfoView()
-            UserRepositoriesView()
+//            UserRepositoriesView()
+//            UserInfoView()
         }
     }
 }
