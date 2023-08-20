@@ -8,11 +8,10 @@
 import Foundation
 
 protocol GithubApiLocalDataSource {
-    
-}
 
+}
 
 /// Created for caching and local operations only
 internal class GithubApiLocalDataSourceImpl: GithubApiLocalDataSource {
-    
+
 }

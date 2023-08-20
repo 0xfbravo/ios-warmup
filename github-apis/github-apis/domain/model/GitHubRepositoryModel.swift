@@ -21,7 +21,7 @@ struct GitHubRepositoryModel: Codable, Identifiable {
     let sshUrl: String
     let language: String?
     let forksCount: Int?
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case nodeId = "node_id"

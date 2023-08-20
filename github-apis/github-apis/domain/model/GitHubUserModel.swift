@@ -26,7 +26,7 @@ struct GitHubUserModel: Codable, Identifiable {
     let receivedEventsUrl: String
     let type: String
     let siteAdmin: Bool
-    
+
     enum CodingKeys: String, CodingKey {
         case login
         case id
@@ -82,7 +82,7 @@ struct GitHubUserCompleteModel: Codable, Identifiable {
     let following: Int
     let createdAt: String
     let updatedAt: String
-    
+
     enum CodingKeys: String, CodingKey {
         case login
         case id

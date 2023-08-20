@@ -18,45 +18,72 @@ extension Container {
         if let plistPath = Bundle.main.path(forResource: configPlistPath, ofType: "plist") {
             if let plistData = FileManager.default.contents(atPath: plistPath) {
                 do {
-                    if let plistDictionary = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as? [String: Any] {
+                    if let plistDictionary =
+                        try PropertyListSerialization
+                            .propertyList(
+                                from: plistData,
+                                options: [],
+                                format: nil
+                            ) as? [String: Any] {
                         debugPrint("Sucessfully loaded app config \(plistDictionary)")
-                        return plistDictionary;
+                        return plistDictionary
                     }
                 } catch {
-                    debugPrint("Unable to read config from `\(configPlistPath).plist`: \(error)")
-                    exit(1)
+                    fatalError("Unable to read config from `\(configPlistPath).plist`: \(error)")
                 }
             } else {
-                debugPrint("Unable to read config from `\(configPlistPath).plist`")
-                exit(1)
+                fatalError("Unable to read config from `\(configPlistPath).plist`")
             }
         } else {
-            debugPrint("Unable to read config from `\(configPlistPath).plist`")
-            exit(1)
+            fatalError("Unable to read config from `\(configPlistPath).plist`")
         }
-        return [:];
+        return [:]
     }
-    
+
     // Data source
     var githubApiLocalDataSource: Factory<GithubApiLocalDataSource> {
-        Factory(self) { GithubApiLocalDataSourceImpl() }
+        Factory(self) { GithubApiLocalDataSourceImpl() }.singleton
     }
     var githubApiRemoteDataSource: Factory<GithubApiRemoteDataSource> {
-        Factory(self) { GithubApiRemoteDataSourceImpl() }
+        Factory(self) { GithubApiRemoteDataSourceImpl() }.singleton
     }
-    
+
     // Setup repository
     var githubApiRepository: Factory<GithubApiRepository> {
-        Factory(self) { GithubApiRepositoryImpl() }
+        Factory(self) { GithubApiRepositoryImpl() }.singleton
     }
 }
 
 /// Domain layer
 extension Container {
     // Setup use cases
+    var getUserUseCase: Factory<GetUserUseCase> {
+        Factory(self) { GetUserUseCaseImpl() }.singleton
+    }
+    var getUsersListUseCase: Factory<GetUsersListUseCase> {
+        Factory(self) { GetUsersListUseCaseImpl() }.singleton
+    }
+    var getUserRepositoriesUseCase: Factory<GetUserRepositoriesListUseCase> {
+        Factory(self) { GetUserRepositoriesListUseCaseImpl() }.singleton
+    }
+    var getRepositoryUseCase: Factory<GetRepositoryUseCase> {
+        Factory(self) { GetRepositoryUseCaseImpl() }.singleton
+    }
 }
 
 /// Presentation layer
 extension Container {
     // Setup MVVM
+    var userInfoViewModel: Factory<UserInfoViewModel> {
+        Factory(self) { UserInfoViewModel() }
+    }
+    var userRepositoriesViewModel: Factory<UserRepositoriesViewModel> {
+        Factory(self) { UserRepositoriesViewModel() }
+    }
+    var userRepositoryInfoViewModel: Factory<UserRepositoryInfoViewModel> {
+        Factory(self) { UserRepositoryInfoViewModel() }
+    }
+    var usersListViewModel: Factory<UsersListViewModel> {
+        Factory(self) { UsersListViewModel() }
+    }
 }
