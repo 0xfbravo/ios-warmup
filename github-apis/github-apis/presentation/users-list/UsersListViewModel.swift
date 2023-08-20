@@ -21,13 +21,12 @@ class UsersListViewModel: ObservableObject {
     private func getUsersList() {
         self.isLoading = true
         getUsersListUseCase.execute { response in
+            self.isLoading = false
             if response.error != nil {
                 self.hasError = true
-                self.isLoading = false
                 return
             }
             self.users = response.success
-            self.isLoading = false
         }
     }
 }

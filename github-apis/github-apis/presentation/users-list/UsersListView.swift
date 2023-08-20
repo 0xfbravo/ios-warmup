@@ -17,14 +17,9 @@ struct UsersListView: View {
 
     var body: some View {
         if viewModel.isLoading {
-            VStack(spacing: 16) {
-                ProgressView()
-                Text("Loading...")
-            }
+            LoadingView()
         } else if viewModel.hasError {
-            VStack(spacing: 16) {
-                Text("Sorry, we're unable to load users list.")
-            }
+            ErrorView()
         } else {
             if viewModel.users?.isEmpty ?? true {
                 VStack(spacing: 16) {

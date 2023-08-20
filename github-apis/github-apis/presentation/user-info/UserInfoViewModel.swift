@@ -23,13 +23,12 @@ class UserInfoViewModel: ObservableObject {
         getUserUseCase.execute(
             username: "0xfbravo"
         ) { response in
+            self.isLoading = false
             if response.error != nil {
                 self.hasError = true
-                self.isLoading = false
                 return
             }
             self.user = response.success
-            self.isLoading = false
         }
     }
 }

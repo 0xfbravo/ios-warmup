@@ -41,6 +41,8 @@
 		ECF242E72A927AC900E05BD9 /* UserRepositoryInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF242E62A927AC900E05BD9 /* UserRepositoryInfoViewModel.swift */; };
 		ECF242E92A927AD600E05BD9 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF242E82A927AD600E05BD9 /* UsersListView.swift */; };
 		ECF242EB2A927AE100E05BD9 /* UsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF242EA2A927AE100E05BD9 /* UsersListViewModel.swift */; };
+		ECF242EE2A9286C500E05BD9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF242ED2A9286C500E05BD9 /* LoadingView.swift */; };
+		ECF242F02A9286EF00E05BD9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF242EF2A9286EF00E05BD9 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,8 @@
 		ECF242E62A927AC900E05BD9 /* UserRepositoryInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryInfoViewModel.swift; sourceTree = "<group>"; };
 		ECF242E82A927AD600E05BD9 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 		ECF242EA2A927AE100E05BD9 /* UsersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
+		ECF242ED2A9286C500E05BD9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		ECF242EF2A9286EF00E05BD9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +215,7 @@
 		ECAA1A802A90F9CC000E1CB2 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				ECF242EC2A9286B200E05BD9 /* design-system */,
 				ECAA1A502A90E568000E1CB2 /* GitHubApisApp.swift */,
 				ECF242DA2A9278DD00E05BD9 /* user-info */,
 				ECF242D92A9278CC00E05BD9 /* user-repositores-list */,
@@ -301,6 +306,15 @@
 				ECF242E62A927AC900E05BD9 /* UserRepositoryInfoViewModel.swift */,
 			);
 			path = "user-repository-info";
+			sourceTree = "<group>";
+		};
+		ECF242EC2A9286B200E05BD9 /* design-system */ = {
+			isa = PBXGroup;
+			children = (
+				ECF242ED2A9286C500E05BD9 /* LoadingView.swift */,
+				ECF242EF2A9286EF00E05BD9 /* ErrorView.swift */,
+			);
+			path = "design-system";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,6 +511,7 @@
 				ECF242E72A927AC900E05BD9 /* UserRepositoryInfoViewModel.swift in Sources */,
 				ECF242DD2A927A7700E05BD9 /* UserInfoView.swift in Sources */,
 				ECAA1A992A9135B7000E1CB2 /* GetUserUseCase.swift in Sources */,
+				ECF242F02A9286EF00E05BD9 /* ErrorView.swift in Sources */,
 				ECF242E32A927AAC00E05BD9 /* UserRepositoriesViewModel.swift in Sources */,
 				ECAA1AA62A914661000E1CB2 /* UseCaseResponse.swift in Sources */,
 				ECF242D32A9228C800E05BD9 /* GetRepositoryUseCase.swift in Sources */,
@@ -512,6 +527,7 @@
 				ECAA1A9D2A9135D7000E1CB2 /* GetUserRepositoriesListUseCase.swift in Sources */,
 				ECAA1A872A90FA22000E1CB2 /* GithubApiRepository.swift in Sources */,
 				ECF242EB2A927AE100E05BD9 /* UsersListViewModel.swift in Sources */,
+				ECF242EE2A9286C500E05BD9 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

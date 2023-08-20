@@ -23,13 +23,12 @@ class UserRepositoriesViewModel: ObservableObject {
         getUserRepositoresUseCase.execute(
             username: "0xfbravo"
         ) { response in
+            self.isLoading = false
             if response.error != nil {
                 self.hasError = true
-                self.isLoading = false
                 return
             }
             self.repositories = response.success
-            self.isLoading = false
         }
     }
 }

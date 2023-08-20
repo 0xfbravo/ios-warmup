@@ -24,13 +24,12 @@ class UserRepositoryInfoViewModel: ObservableObject {
             username: "0xfbravo",
             repositoryName: "ios-warmup"
         ) { response in
+            self.isLoading = false
             if response.error != nil {
                 self.hasError = true
-                self.isLoading = false
                 return
             }
             self.repository = response.success
-            self.isLoading = false
         }
     }
 }
