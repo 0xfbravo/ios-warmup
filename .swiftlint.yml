@@ -1,0 +1,2 @@
+excluded:
+    - github-apis/github-apisTests/GeneratedMocks.swift
