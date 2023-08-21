@@ -14,14 +14,10 @@ class UserInfoViewModel: ObservableObject {
     @Published var hasError = false
     @Injected(\.getUserUseCase) private var getUserUseCase
 
-    init () {
-        getUser()
-    }
-
-    private func getUser() {
+    func getUser(username: String) {
         self.isLoading = true
         getUserUseCase.execute(
-            username: "0xfbravo"
+            username: username
         ) { response in
             self.isLoading = false
             if response.error != nil {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ECA86C5F2A92C7F40072739E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ECA86C5E2A92C7F40072739E /* Kingfisher */; };
+		ECA86C612A92CB6C0072739E /* UserHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA86C602A92CB6C0072739E /* UserHeaderView.swift */; };
 		ECAA1A512A90E568000E1CB2 /* GitHubApisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA1A502A90E568000E1CB2 /* GitHubApisApp.swift */; };
 		ECAA1A552A90E569000E1CB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECAA1A542A90E569000E1CB2 /* Assets.xcassets */; };
 		ECAA1A592A90E569000E1CB2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECAA1A582A90E569000E1CB2 /* Preview Assets.xcassets */; };
@@ -66,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ECA86C602A92CB6C0072739E /* UserHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderView.swift; sourceTree = "<group>"; };
 		ECAA1A4D2A90E568000E1CB2 /* github-apis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "github-apis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECAA1A502A90E568000E1CB2 /* GitHubApisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApisApp.swift; sourceTree = "<group>"; };
 		ECAA1A542A90E569000E1CB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA86C5F2A92C7F40072739E /* Kingfisher in Frameworks */,
 				ECAA1A7D2A90E8D8000E1CB2 /* Alamofire in Frameworks */,
 				ECF243052A9294B600E05BD9 /* Willow in Frameworks */,
 				ECAA1A8A2A90FB35000E1CB2 /* Factory in Frameworks */,
@@ -313,6 +317,7 @@
 				ECAA1A542A90E569000E1CB2 /* Assets.xcassets */,
 				ECF242ED2A9286C500E05BD9 /* LoadingView.swift */,
 				ECF242EF2A9286EF00E05BD9 /* ErrorView.swift */,
+				ECA86C602A92CB6C0072739E /* UserHeaderView.swift */,
 			);
 			path = "design-system";
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 				ECAA1A7C2A90E8D8000E1CB2 /* Alamofire */,
 				ECAA1A892A90FB35000E1CB2 /* Factory */,
 				ECF243042A9294B600E05BD9 /* Willow */,
+				ECA86C5E2A92C7F40072739E /* Kingfisher */,
 			);
 			productName = "github-apis";
 			productReference = ECAA1A4D2A90E568000E1CB2 /* github-apis.app */;
@@ -422,6 +428,7 @@
 				ECAA1A882A90FB35000E1CB2 /* XCRemoteSwiftPackageReference "Factory" */,
 				ECF242CC2A92254E00E05BD9 /* XCRemoteSwiftPackageReference "Cuckoo" */,
 				ECF243032A9294B600E05BD9 /* XCRemoteSwiftPackageReference "Willow" */,
+				ECA86C5D2A92C7F40072739E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = ECAA1A4E2A90E568000E1CB2 /* Products */;
 			projectDirPath = "";
@@ -522,6 +529,7 @@
 				ECF242E92A927AD600E05BD9 /* UsersListView.swift in Sources */,
 				ECAA1AAA2A914DBB000E1CB2 /* DataLayerResponse.swift in Sources */,
 				ECAA1A8D2A90FC53000E1CB2 /* dependency-injection.swift in Sources */,
+				ECA86C612A92CB6C0072739E /* UserHeaderView.swift in Sources */,
 				ECF243022A9290A100E05BD9 /* UserModel.swift in Sources */,
 				ECF242E12A927AA100E05BD9 /* UserRepositoriesView.swift in Sources */,
 				ECF242FE2A928FE600E05BD9 /* RepositoryModel.swift in Sources */,
@@ -620,7 +628,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -674,7 +682,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -702,11 +710,12 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
@@ -740,11 +749,12 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
@@ -917,6 +927,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		ECA86C5D2A92C7F40072739E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		ECAA1A7B2A90E8D8000E1CB2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -952,6 +970,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		ECA86C5E2A92C7F40072739E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECA86C5D2A92C7F40072739E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		ECAA1A7C2A90E8D8000E1CB2 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ECAA1A7B2A90E8D8000E1CB2 /* XCRemoteSwiftPackageReference "Alamofire" */;

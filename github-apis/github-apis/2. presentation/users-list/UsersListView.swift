@@ -26,9 +26,19 @@ struct UsersListView: View {
                     Text("No users found.")
                 }
             } else {
-                List(viewModel.users ?? []) { user in
-                    NavigationLink(user.login ?? "Unknown", destination: UserInfoView())
-                }
+                ZStack {
+                    Color("Primary").ignoresSafeArea()
+                    VStack(alignment: .leading) {
+                        Text("GitHub Users")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            .bold()
+                            .padding(.all, 16)
+                        List(viewModel.users ?? []) { user in
+                            NavigationLink(user.login ?? "Unknown", destination: UserInfoView(username: user.login ?? "Unknown"))
+                        }
+                    }
+                }.preferredColorScheme(.dark)
             }
         }
     }

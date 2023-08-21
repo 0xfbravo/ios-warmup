@@ -14,14 +14,10 @@ class UserRepositoriesViewModel: ObservableObject {
     @Published var hasError = false
     @Injected(\.getUserRepositoriesUseCase) private var getUserRepositoresUseCase
 
-    init () {
-        getUserRepositories()
-    }
-
-    private func getUserRepositories() {
+    func getUserRepositories(username: String) {
         self.isLoading = true
         getUserRepositoresUseCase.execute(
-            username: "0xfbravo"
+            username: username
         ) { response in
             self.isLoading = false
             if response.error != nil {

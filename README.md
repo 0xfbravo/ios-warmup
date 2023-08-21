@@ -22,7 +22,7 @@ Motivation:
 
 Just run it using github-apis.xcodeproj
 
-*If you're receiving API rating limit on GitHub free calls, I recomend you to create an [authorization token](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28) and put it on `Config.plist` under the key `GITHUB_BEARER_TOKEN``.*
+*If you're receiving API rating limit on GitHub free calls, I recomend you to create an [authorization token](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28) and put it on `Config.plist` under the key `GITHUB_BEARER_TOKEN`.*
 
 ### 3rd Party
 

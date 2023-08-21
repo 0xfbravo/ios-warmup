@@ -10,10 +10,13 @@ import Factory
 
 struct UserRepositoriesView: View {
     @ObservedObject private var viewModel: UserRepositoriesViewModel
+    private var username: String
 
-     init() {
-         self.viewModel = Container.shared.userRepositoriesViewModel.resolve()
-     }
+    init(username: String) {
+        self.username = username
+        self.viewModel = Container.shared.userRepositoriesViewModel.resolve()
+        self.viewModel.getUserRepositories(username: username)
+    }
 
      var body: some View {
          if viewModel.isLoading {
@@ -27,7 +30,13 @@ struct UserRepositoriesView: View {
                  }
              } else {
                  List(viewModel.repositories ?? []) { repository in
-                     NavigationLink(repository.name ?? "Unknown", destination: UserRepositoryInfoView())
+                     NavigationLink(
+                        repository.name ?? "Unknown",
+                        destination: UserRepositoryInfoView(
+                            username: username,
+                            repositoryName: repository.name ?? "Unknown"
+                        )
+                     )
                  }
              }
          }
@@ -36,6 +45,8 @@ struct UserRepositoriesView: View {
 
 struct UserRepositoriesView_Previews: PreviewProvider {
     static var previews: some View {
-        UserRepositoriesView()
+        UserRepositoriesView(
+            username: "0xfbravo"
+        )
     }
 }

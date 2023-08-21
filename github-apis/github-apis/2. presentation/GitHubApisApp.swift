@@ -13,10 +13,10 @@ struct GitHubApisApp: App {
     var config = Container.shared.config
     var body: some Scene {
         WindowGroup {
-            UsersListView()
-//            UserRepositoryInfoView()
-//            UserRepositoriesView()
-//            UserInfoView()
+            NavigationView {
+                UsersListView()
+            }
+            .accentColor(.white)
         }
     }
 }
